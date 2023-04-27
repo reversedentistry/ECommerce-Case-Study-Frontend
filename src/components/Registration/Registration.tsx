@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { registerUser } from "../../features/authSlice";
 import { RootState } from "../../redux/store";
 import { Field, Formik, Form } from "formik";
+import { Link, useNavigate } from "react-router-dom";
 
 interface RegistrationValues {
     username: string; 
@@ -14,6 +15,7 @@ function RegistrationPage() {
         password: "",
     };
     
+    const navigate = useNavigate();
     const dispatch = useAppDispatch(); 
     const auth = useAppSelector((state: RootState) => state.auth);
 
@@ -24,12 +26,13 @@ function RegistrationPage() {
         if (response.httpStatus) {
             console.log(response);
         } else {
-
+            navigate("/"); 
         }
     }
 
     return (
         <div>
+            <h2>Welcome, new customers!</h2>
             <Formik
             initialValues={initialValues}
             onSubmit={(values) => handleSubmit(values)}>
