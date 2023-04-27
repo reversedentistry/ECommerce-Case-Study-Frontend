@@ -5,6 +5,7 @@ interface ProductInfo {
 
 function ProductCard(product:ProductInfo) {
     return (
+        <div className="column">
         <div className="card">
             <div className="card-content">
                 <div className="content">
@@ -12,6 +13,7 @@ function ProductCard(product:ProductInfo) {
                     <h6>{product.price}</h6>
                 </div>
             </div>
+        </div>
         </div>
     )
 }; 
