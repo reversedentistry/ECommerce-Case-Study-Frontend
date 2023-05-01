@@ -1,17 +1,13 @@
-interface ProductInfo {
-    id: number,
-    name: string,
-    price: number,
-}
+import { Product } from "../../models/Product";
 
-function ProductCard(product:ProductInfo) {
+function ProductCard(product:Product) {
     function addToCart() {
         let cart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart") || "") : [];
 
-        if (cart[product.id]) {
+        if (cart[product.productId]) {
             return;
         } else {
-            cart[product.id] = product;
+            cart[product.productId] = product;
         };
 
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -23,7 +19,7 @@ function ProductCard(product:ProductInfo) {
         <div className="card">
             <div className="card-content">
                 <div className="content">
-                    <h5>{product.name}</h5>
+                    <h5>{product.productName}</h5>
                     <h6>{product.price}</h6>
                     <button onClick={addToCart}>Add to cart</button>
                 </div>
