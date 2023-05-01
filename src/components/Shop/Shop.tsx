@@ -26,7 +26,7 @@ function ShopPage() {
     useEffect(() => {
         getAllProducts();
         allProducts?.map((product: Product) => console.log(product));
-    });
+    }, []);
 
 
     return (
