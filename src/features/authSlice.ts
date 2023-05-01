@@ -42,6 +42,7 @@ export const loginUser = createAsyncThunk(
             return response.data;
         } catch (err) {
             console.log(err);
+            alert("There was an issue logging in.");
         }
     }
 );
